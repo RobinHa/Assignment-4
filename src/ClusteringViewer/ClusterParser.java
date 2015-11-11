@@ -41,7 +41,9 @@ public class ClusterParser {
                 // if new cluster is found, complete old cluster.
                 if(!firstCluster) {
                     r.get(r.size()-1).getChildren().addAll(clusterSequences);
-                    r.get(r.size()-1).setExpanded(true);
+                    r.get(r.size()-1).setExpanded(false);
+                }else{
+                    firstCluster = false;
                 }
                 clusterSequences = new ArrayList<>();
             }else if(Pattern.matches(clusterRepresentative, line)) {

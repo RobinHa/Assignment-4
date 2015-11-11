@@ -2,6 +2,7 @@ package ClusteringViewer;
 
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -28,7 +29,9 @@ public class Main extends Application {
 
         // Input of the Files,
         TextField clusterPath = new TextField("select the cluster file");
+        clusterPath.setPrefWidth(400);
         TextField fastAPath = new TextField();
+        fastAPath.setPrefWidth(400);
         fastAPath.setDisable(true);
 
         Button chooseClsr = new Button("Choose ClusterParser File");
@@ -85,9 +88,9 @@ public class Main extends Application {
 
         });
 
-
-
         flowPane.getChildren().addAll(clusterPath, chooseClsr, fastAPath, viewClustering, treeTableView);
+        Insets insets = new Insets(4,9,4,9);
+        flowPane.getChildren().forEach(node -> flowPane.setMargin(node, insets));
 
         primaryStage.setScene(scene);
         primaryStage.show();
